@@ -37,8 +37,8 @@ namespace Model.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Blast;Persist Security Info=Tr" +
-            "ue;User ID=blast;Password=qazwsxedc123;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLSERVER;Initial Catalog=Blast;User ID=sa;Password=qazwsxedc123;Pe" +
+            "rsist Security Info=True")]
         public string BlastConnectionStringDEV {
             get {
                 return ((string)(this["BlastConnectionStringDEV"]));

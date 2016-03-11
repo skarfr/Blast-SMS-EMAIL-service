@@ -74,15 +74,15 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Tools\Tools.csproj">
-      <Project>{5CD29112-A068-4217-B667-B69A0F0667E3}</Project>
-      <Name>Tools</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="database\Blast.dbml.layout">
       <DependentUpon>Blast.dbml</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tools\Tools.csproj">
+      <Project>{c1746323-55bc-4184-949f-683ae088fde0}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

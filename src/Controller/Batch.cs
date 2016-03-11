@@ -22,7 +22,7 @@ namespace Controller
             {
                 var result =from m in _db.Blast.MessagesOuts
                             where m.SentTime == null
-                            select m;
+                            select m.Id;
 
                 if (result.Any())                           // if any, try to send those messages
                 {

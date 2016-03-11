@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Linq;
 using Model.database;
 using System.Text;
+using System.Linq;
 
 namespace Model
 {
@@ -101,11 +102,19 @@ namespace Model
         /// Constructor of the Message object
         /// </summary>
         /// <param name="message">A row from the table Blast.MessagesOut</param>
-        public Message(MessagesOut message)
+        public Message(int id)
         {
-            if (message == null)
-                throw new Exception("Model::Message: The MessageOut can not be Null");
-            this._message = message;
+            if (id < 0)
+                throw new Exception("Model::Message: Message " + id + " not found. The Message ID can not be < 0");
+
+            try
+            {
+                this._message = this._db.Blast.MessagesOuts.Single(m => m.Id == id);
+            }
+            catch (InvalidOperationException ioe) //The collection does not contain exactly one element OR the input sequence is empty
+            {
+                throw new Exception("Model::Message: Message " + id + " not found. " + ioe.Message);
+            }
         }
 
         #region Check data validation according to Type
@@ -171,7 +180,7 @@ namespace Model
         /// </summary>
         /// <param name="reason">The message provider "sending failed" full response</param>
         public void NotSent(string reason)
-        { this.update("notsent", null, reason); } // provider name is set when the message goes to sending
+        { this.update("notsent", null, reason,"",true); } // provider name is set when the message goes to sending
 
         /// <summary>
         /// Set the Message to "sent"
